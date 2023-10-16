@@ -1,0 +1,7 @@
+library(randomForest)
+a1<-read.table("d:/wj/HYQ1.txt",header=T)
+set.seed(100)
+b1<-randomForest(Ei~.,data=a1,prox=TRUE, importance=TRUE)
+varImpPlot(b1,main=" ",cex.main=2,col="blue", pch=19)
+partialPlot(b1,a1,SP,xlab=expression("SP"),ylab=expression("Ei(%)"),main="SP ",lwd=3,col="blue",cex.axis=1.5,cex.lab=1.5)
+partialPlot(b1,a1,M,xlab=expression("M(kg/s.m/s)"),ylab=expression("Ei(%)"),main="FM",lwd=3,col="blue",cex.axis=1.5,cex.lab=1.5)
